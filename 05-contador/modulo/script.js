@@ -12,8 +12,8 @@ function criarListaNumeros(valor){
 function criarListaPares(valor){
     let listaPares = []
 
-    for(let i = 1; i <= valor; i++){
-        listaPares.push(i % 2 === 0 ? i : '')
+    for(let i = 2; i <= 2 * valor; i += 2){
+        listaPares.push(i)
     }
     return listaPares
 }
@@ -21,8 +21,8 @@ function criarListaPares(valor){
 function criarListaImpares(valor){
     let listaImpares = []
 
-    for(let i = 1; i <= valor; i++){
-        listaImpares.push(i % 2 !== 0 ? i : '')
+    for(let i = 1; i <= 2 * valor -1; i += 2){
+        listaImpares.push(i)
     }
     return listaImpares
 }
@@ -66,17 +66,19 @@ function criarLinha(num, par, imp, mult5, pot2){
     const tdPot2 = document.createElement('td')
     tdPot2.textContent = pot2
 
-    tr.appendChild(tdNum,
-                   tdPar,
-                   tdImpar,
-                   tdMult5,
-                   tdPot2)
+    tr.appendChild(tdNum)
+    tr.appendChild(tdPar)
+    tr.appendChild(tdImpar)
+    tr.appendChild(tdMult5)
+    tr.appendChild(tdPot2)
 
     tabela.appendChild(tr)
 }
 
 function handleClick(){
     const quantidade = Number(document.getElementById('quantidade').value)
+    const tabela = document.getElementById('tabela')
+    tabela.innerHTML = ''
 
     const listaNumero  = criarListaNumeros(quantidade)
     const listaPar     = criarListaPares(quantidade)
