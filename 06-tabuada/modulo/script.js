@@ -3,7 +3,7 @@
 function criarListaNumeros(valor){
     let listaNumero = []
 
-    for(let i = 1; i <= valor; i++){
+    for(let i = 1; i <= valor && valor <= 10; i++){
         listaNumero.push(i)
     }
     return listaNumero
@@ -13,7 +13,7 @@ function criarListaAdicao(valor){
     let listaAdicao = []
     let result
 
-    for(let i = 1; i <= valor; i++){
+    for(let i = 1; i <= valor && valor <= 10; i++){
         result = valor + i
         listaAdicao.push(Number(result).toFixed(2))
     }
@@ -24,7 +24,7 @@ function criarListaSubtracao(valor){
     let listaSub = []
     let result
 
-    for(let i = 1; i <= valor; i++){
+    for(let i = 1; i <= valor && valor <= 10; i++){
         result = valor - i
         listaSub.push(Number(result).toFixed(2))
     }
@@ -36,7 +36,7 @@ function criarListaMultiplicacao(valor){
     let listaMulti = []
     let result
 
-    for(let i = 1; i <= valor; i++){
+    for(let i = 1; i <= valor && valor <= 10; i++){
         result = valor * i
         listaMulti.push(Number(result).toFixed(2))
     }
@@ -48,7 +48,7 @@ function criarListaDivisao(valor){
     let listaDiv = []
     let result
 
-    for(let i = 1; i <= valor; i++){
+    for(let i = 1; i <= valor && valor <= 10; i++){
         result = valor / i
         listaDiv.push(Number(result).toFixed(2))
     }
