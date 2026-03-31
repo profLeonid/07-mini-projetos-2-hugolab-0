@@ -50,7 +50,7 @@ function criarListaDivisao(valor){
 
     for(let i = 1; i <= valor && valor <= 10; i++){
         result = valor / i
-        listaDiv.push(Number(result).toFixed(2))
+        listaDiv.push(Number(i).toFixed(2))
     }
     return listaDiv
 }
