@@ -1,41 +1,36 @@
 'use strict'
 
-function criarListaNumeros (valor){
+function criarListaNumeros(valor){
     let listaNumero = []
 
     for(let i = 1; i <= valor; i++){
         listaNumero.push(i)
     }
-    console.log(listaNumero)
     return listaNumero
 }
-function criarListaPares (valor){
+
+function criarListaPares(valor){
     let listaPares = []
 
     for(let i = 1; i <= valor; i++){
-        if(i % 2 == 0){
-            listaPares.push(i)
-        }
+        listaPares.push(i % 2 === 0 ? i : '')
     }
-    console.log(listaPares)
     return listaPares
 }
-function criarListaImpares (valor){
-    let listaPares = []
-    
-    for(let i = 1; i <= valor; i++){
-        if(i % 2 == 1){
-            listaPares.push(i)
-        }
-    }
 
-    console.log(listaPares)
-    return listaPares
+function criarListaImpares(valor){
+    let listaImpares = []
+
+    for(let i = 1; i <= valor; i++){
+        listaImpares.push(i % 2 !== 0 ? i : '')
+    }
+    return listaImpares
 }
-function criarListaMulti5(valorMult){
+
+function criarListaMulti5(valor){
     let listaMulti = []
 
-    for(let i = 1; i <= valorMult; i++){
+    for(let i = 1; i <= valor; i++){
         listaMulti.push(i * 5)
     }
 
@@ -45,14 +40,14 @@ function criarListaMulti5(valorMult){
 function criarListaPotencia2(valor){
     let listaPotencia = []
 
-    for(let i = 1; i <= valor; i++){
+    for(let i = 0; i < valor; i++){
         listaPotencia.push(2 ** i)
     }
 
     return listaPotencia
 }
+function criarLinha(num, par, imp, mult5, pot2){
 
-function criarLinha (num, par, imp, mult5, pot2){
     const tabela = document.getElementById('tabela')
     const tr = document.createElement('tr')
 
@@ -68,14 +63,14 @@ function criarLinha (num, par, imp, mult5, pot2){
     const tdMult5 = document.createElement('td')
     tdMult5.textContent = mult5
 
-    const tdpot2 = document.createElement('td')
-    tdpot2.textContent = pot2
+    const tdPot2 = document.createElement('td')
+    tdPot2.textContent = pot2
 
-    tr.appendChild(tdNum)
-    tr.appendChild(tdPar)
-    tr.appendChild(tdImpar)
-    tr.appendChild(tdMult5)
-    tr.appendChild(tdpot2)
+    tr.appendChild(tdNum,
+                   tdPar,
+                   tdImpar,
+                   tdMult5,
+                   tdPot2)
 
     tabela.appendChild(tr)
 }
@@ -87,12 +82,15 @@ function handleClick(){
     const listaPar     = criarListaPares(quantidade)
     const listaImpar   = criarListaImpares(quantidade)
     const listaMulti   = criarListaMulti5(quantidade)
-    const listaPont    = criarListaPotencia2(quantidade)
+    const listaPot     = criarListaPotencia2(quantidade)
 
-    for (let i = 1; i < quantidade; i++){
-        criarLinha(listaNumero[i], listaPar[i], listaImpar[i], listaMulti[i], listaPont[i])
+    for (let i = 0; i < quantidade; i++){
+        criarLinha(
+            listaNumero[i],
+            listaPar[i],
+            listaImpar[i],
+            listaMulti[i],
+            listaPot[i]
+        )
     }
-}
-module.exports = {
-    handleClick
 }
